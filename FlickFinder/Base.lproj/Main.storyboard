@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="FlickFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,119 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-Qd-AVF">
+                                <rect key="frame" x="16" y="71" width="568" height="266"/>
+                                <color key="backgroundColor" red="0.8379515514213649" green="1" blue="0.96856848297296838" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="266" id="NHH-4W-eJm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flick Finder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uae-dL-w6d">
+                                <rect key="frame" x="256" y="28" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmf-To-lMu">
+                                <rect key="frame" x="488" y="373" width="32" height="32"/>
+                                <state key="normal" image="Search Icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPhotosByPhraseButtonTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Yeb-Fj-ykx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ye8-lE-FMA">
+                                <rect key="frame" x="488" y="432" width="32" height="32"/>
+                                <state key="normal" image="Search Icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPhotosByLatLonButtonTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iIC-RA-mrG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEi-0W-ifC">
+                                <rect key="frame" x="16" y="373" width="464" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa0-Qe-R0M">
+                                <rect key="frame" x="115" y="481" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWQ-7o-qS3">
+                                <rect key="frame" x="16" y="518" width="568" height="74"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko5-qN-jUQ">
+                                <rect key="frame" x="344" y="481" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDJ-4x-SYM">
+                                <rect key="frame" x="16" y="432" width="261" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S3v-zz-8CE">
+                                <rect key="frame" x="285" y="432" width="195" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-Si-KpQ">
+                                <rect key="frame" x="95" y="94" width="410" height="209"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tmf-To-lMu" firstAttribute="leading" secondItem="xEi-0W-ifC" secondAttribute="trailing" constant="8" id="0pq-BK-3BH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ko5-qN-jUQ" secondAttribute="trailing" constant="80" id="1f7-ZP-fLZ"/>
+                            <constraint firstItem="VDJ-4x-SYM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1pl-uZ-HMB"/>
+                            <constraint firstItem="qa0-Qe-R0M" firstAttribute="top" secondItem="VDJ-4x-SYM" secondAttribute="bottom" constant="7" id="3cS-rW-fpp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VDJ-4x-SYM" secondAttribute="trailing" constant="190" id="G0Q-jO-2M4"/>
+                            <constraint firstItem="xEi-0W-ifC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="IkX-c5-pi0"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="O7i-eb-Ytb"/>
+                            <constraint firstItem="VDJ-4x-SYM" firstAttribute="top" secondItem="xEi-0W-ifC" secondAttribute="bottom" constant="20" id="OZi-cZ-oE8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ye8-lE-FMA" secondAttribute="trailing" constant="10" id="QNU-sd-2Fw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tmf-To-lMu" secondAttribute="trailing" constant="10" id="QwK-7c-uX4"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="trailing" secondItem="cWQ-7o-qS3" secondAttribute="trailing" id="S50-jL-xqy"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="71" id="Syq-cC-snQ"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="U2X-qM-CeI"/>
+                            <constraint firstItem="cWQ-7o-qS3" firstAttribute="top" secondItem="Ko5-qN-jUQ" secondAttribute="bottom" constant="10" id="Zs7-Jw-2Gf"/>
+                            <constraint firstItem="qa0-Qe-R0M" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="fd4-we-3Go"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="top" secondItem="Uae-dL-w6d" secondAttribute="bottom" constant="22" id="hyJ-a5-ABi"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="centerX" secondItem="Uae-dL-w6d" secondAttribute="centerX" id="kv5-Qk-vsE"/>
+                            <constraint firstItem="Ko5-qN-jUQ" firstAttribute="top" secondItem="S3v-zz-8CE" secondAttribute="bottom" constant="7" id="lnG-os-M1N"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="leading" secondItem="cWQ-7o-qS3" secondAttribute="leading" id="qhr-cN-ean"/>
+                            <constraint firstItem="xEi-0W-ifC" firstAttribute="top" secondItem="bsU-Qd-AVF" secondAttribute="bottom" constant="36" id="rUZ-QQ-9bJ"/>
+                            <constraint firstItem="S3v-zz-8CE" firstAttribute="top" secondItem="xEi-0W-ifC" secondAttribute="bottom" constant="20" id="tkD-0W-cGe"/>
+                            <constraint firstItem="bsU-Qd-AVF" firstAttribute="leading" secondItem="xEi-0W-ifC" secondAttribute="leading" id="uxh-k0-U0A"/>
+                            <constraint firstItem="S3v-zz-8CE" firstAttribute="leading" secondItem="VDJ-4x-SYM" secondAttribute="trailing" constant="10" id="yTk-At-l5Y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="defaultLabel" destination="ZTS-Si-KpQ" id="jzp-vj-XMq"/>
+                        <outlet property="latitudeTextField" destination="VDJ-4x-SYM" id="rRM-9w-2i3"/>
+                        <outlet property="longitudeTextField" destination="S3v-zz-8CE" id="9yg-FM-GrH"/>
+                        <outlet property="photoImageView" destination="bsU-Qd-AVF" id="dEI-Rv-3Ih"/>
+                        <outlet property="photoTitleLabel" destination="cWQ-7o-qS3" id="zT6-aC-Jx2"/>
+                        <outlet property="phraseTextField" destination="xEi-0W-ifC" id="Set-2U-knE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Search Icon" width="32" height="32"/>
+    </resources>
 </document>
